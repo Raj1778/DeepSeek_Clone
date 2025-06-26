@@ -9,6 +9,9 @@ const inter = Inter({
 export const metadata = {
   title: "DeepSeek - Into the Unknown",
   description: "DeepSeek AI",
+  icons: {
+    icon: "/favicon.svg",
+  },
 };
 
 export default function RootLayout({ children }) {
