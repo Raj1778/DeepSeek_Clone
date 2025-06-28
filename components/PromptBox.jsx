@@ -29,7 +29,7 @@ const PromptBox = ({ isLoading, setIsLoading }) => {
             Search
           </p>
         </div>
-        <div>
+        <div className="flex items-center gap-2">
           <Image
             className="w-4 cursor-pointer"
             src={assets.pin_icon}
