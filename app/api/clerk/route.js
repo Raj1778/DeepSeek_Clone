@@ -5,11 +5,11 @@ import { headers } from "next/headers";
 import { NextRequest } from "next/server";
 
 export async function POST(req) {
-  const wh = new Webhook();
+  const wh = new Webhook(process.env.SIGNING_SECRET);
   const headerPayload = await headers();
   const svixHeaders = {
     "svix-id": headerPayload.get("svix-id"),
-    "svix-signaturre": headerPayload.get("svix-signaturre"),
+    "svix-signature": headerPayload.get("svix-signature"),
   };
   //Get the payloas and verify it
   const payload = await req.json();
