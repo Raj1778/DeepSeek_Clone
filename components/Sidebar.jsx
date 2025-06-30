@@ -7,7 +7,7 @@ import ChatLabel from "./ChatLabel";
 
 const Sidebar = ({ expand, setExpand }) => {
   const { openSignIn } = useClerk();
-  const { user, createNewChat } = useAppContext();
+  const { user, chats, createNewChat } = useAppContext();
   const [openMenu, setOpenMenu] = useState({ id: 0, open: false });
   return (
     <div
@@ -75,6 +75,15 @@ const Sidebar = ({ expand, setExpand }) => {
         </button>
         <div>
           <p className="my-4 mx-2 text-sm text-gray-600">Recent</p>
+          {chats.map((chat) => (
+            <ChatLabel
+              name={chat.name}
+              openMenu={openMenu}
+              setOpenMenu={setOpenMenu}
+              key={chat._id}
+              id={chat._id}
+            />
+          ))}
           <ChatLabel openMenu={openMenu} setOpenMenu={setOpenMenu} />
         </div>
       </div>
